@@ -13,6 +13,7 @@ import Input from "../CommonComponents/InputField";
 import ErrorMessage from "../CommonComponents/ErrorMessage";
 import { useForm } from "react-hook-form";
 import ActionButton from "../CommonComponents/Button";
+import {ShowAlert} from "../CommonComponents/Alert"
 
 export default function SignUp(props) {
   const theme = useTheme();
@@ -44,6 +45,14 @@ export default function SignUp(props) {
       password: data.newpassword,
     };
     localStorage.setItem('RegisteredUser', JSON.stringify(postData));
+    ShowAlert({
+        icon: "success",
+        text:"Successfully Registered",
+        width: "400px",
+        confirmAction: () => {
+            handleGoTOSignUp()
+          },
+      });
   };
   const handlePasswordIconNew = (event) => {
     setShowConfirmPassword(event);
@@ -51,7 +60,7 @@ export default function SignUp(props) {
   const handleChange = () => {};
   useEffect(() => {}, []);
   const handleGoTOSignUp=()=>{
-    props.Redirectpath("/SignUp")
+    props.Redirectpath("/")
   }
   return (
     <Grid container sx={{ height: "100vh" }}>
@@ -254,6 +263,7 @@ export default function SignUp(props) {
                   color: "#2B3674",
                   cursor: "pointer",
                 }}
+                onClick={()=>handleGoTOSignUp()}
               >
                 Already Registered to go sign up
               </Link>
@@ -269,14 +279,7 @@ export default function SignUp(props) {
             </div>
           </Box>
 
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            align="center"
-            sx={{ mt: 4 }}
-          >
-            ©2024 Powered by Machint Solutions Ltd
-          </Typography>
+        
         </Box>
       </Grid>
     </Grid>

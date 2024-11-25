@@ -131,7 +131,7 @@ export default function LoginScreen(props) {
             variant="h4"
             sx={{ fontWeight: "bold", color: "#3399FF" }}
           >
-            Ticketing Tool
+        
           </Typography>
           <Typography color="#4B5563" sx={{ mt: 1 }}>
             Please enter your credentials to log in to the application.
@@ -200,17 +200,7 @@ export default function LoginScreen(props) {
               )}
             </div>
             <div style={{display:'flex',justifyContent:'space-between'}}>
-            <Link
-              sx={{
-                display: "block",
-                mt: 1,
-                color: "#2B3674",
-                cursor: "pointer",
-              }}
-    
-            >
-              Forgot Password
-            </Link>
+           
             <Link
               sx={{
                 display: "block",
@@ -236,14 +226,7 @@ export default function LoginScreen(props) {
             </div>
           </Box>
 
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            align="center"
-            sx={{ mt: 4 }}
-          >
-            ©2024 Powered by Machint Solutions Ltd
-          </Typography>
+       
         </Box>
       </Grid>
     </Grid>

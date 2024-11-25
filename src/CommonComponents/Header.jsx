@@ -16,9 +16,9 @@ import Popover from "@mui/material/Popover";
 
 const Header = (props) => {
 
-
+   
   const [anchorEl, setAnchorEl] = useState("");
-
+  const [userData,setUserData]=useState({})
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -40,6 +40,9 @@ const Header = (props) => {
     props.Redirectpath("/dashboard/createUser");
   };
   React.useEffect(() => {
+    const storedUser = localStorage.getItem("RegisteredUser");
+    const user = JSON.parse(storedUser);
+    setUserData(user)
  
   }, []);
 
@@ -48,7 +51,7 @@ const Header = (props) => {
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         {/* Left Side - Title */}
         <Typography variant="h6" color="primary" sx={{ fontWeight: "bold" }}>
-          Ticketing Tool
+         
         </Typography>
 
         {/* Middle - Tabs */}
@@ -80,7 +83,7 @@ const Header = (props) => {
                     textAlign: "right",
                   }}
                 >
-               ewferfdcerwdf
+           {userData&&userData.fullName}
                 </span>
               </div>
               <div
@@ -99,7 +102,7 @@ const Header = (props) => {
                     textAlign: "right",
                   }}
                 >
-                 sqacefdwvc
+                  {userData&&userData.email}
                 </span>
               </div>
             </div>
